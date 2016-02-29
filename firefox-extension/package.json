@@ -1,0 +1,18 @@
+{
+  "title": "Friends feed",
+  "name": "facebook_friends_feed",
+  "version": "1.1.0",
+  "description": "Enjoy Facebook News Feed with stories only by your friends and pages you follow.",
+  "main": "index.js",
+  "author": "Esteban Saracho <sarachoesteban@gmail.com>",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "GPL-3.0",
+  "keywords": [
+    "Facebook feed",
+    "Facebook",
+    "Clear Facebook feed"
+  ]
+}
