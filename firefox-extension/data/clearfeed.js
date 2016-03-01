@@ -5,28 +5,6 @@ self.port.on('recupero', function(guardado) {
   hideStoryPreference = guardado;
 });
 
-$('body').on('DOMNodeInserted', '._5pcb', function(event) {
-	clearAddedFeed(event.originalEvent);
-});
-
-clearExistingFeed();
-
-function clearExistingFeed() {
-	var elements = document.querySelectorAll('._1qbu');
-  [].forEach.call(elements, function(element) {
-		var storyElement = element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
-    hideStory(storyElement);
-	});
-}
-
-function clearAddedFeed(event) {
-	var storyElement = event.target;
-	if(isElement(storyElement) && storyElement.classList.contains('_4-u2')) {
-		if(storyElement.querySelector('._1qbu')) {
-			hideStory(storyElement);
-		}
-	}
-}
 
 function hideStory(el) {
 	if(hideStoryPreference) {
@@ -36,5 +14,17 @@ function hideStory(el) {
 	}
 }
 
-function isElement(obj) {
-	return (typeof HTMLElement === "object" ? obj instanceof HTMLElement : obj && typeof obj === "object" && obj !== null && obj.nodeType === 1 && typeof obj.nodeName==="string");}
+
+var observer = new MutationSummary({
+  callback: clearfeed,
+  queries: [{ element: '._4-u2', }]
+});
+
+function clearfeed(summaries) {
+  var stories = summaries[0];
+  stories.added.forEach(function(story) {
+  	if(story.querySelector('._1qbu')) {
+  		  hideStory(story);
+  		}
+  });
+}
