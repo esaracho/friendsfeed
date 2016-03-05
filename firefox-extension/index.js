@@ -56,7 +56,7 @@ function startEmiting(worker) {
 // Create a page mod
 var pageMods = pageMod.PageMod({
   include: "*.facebook.com",
-  contentScriptFile: [self.data.url("zepto.min.js"), self.data.url("clearfeed.js")],
+  contentScriptFile: [self.data.url("mutation-summary.js"), self.data.url("clearfeed.js")],
   contentScriptWhen: "ready",
   onAttach: startEmiting
 });
