@@ -5,7 +5,6 @@ self.port.on('recupero', function(guardado) {
   hideStoryPreference = guardado;
 });
 
-
 function hideStory(el) {
 	if(hideStoryPreference) {
 		el.style.display = "none";
@@ -13,7 +12,6 @@ function hideStory(el) {
 		el.style.opacity = .4;
 	}
 }
-
 
 var observer = new MutationSummary({
   callback: clearfeed,

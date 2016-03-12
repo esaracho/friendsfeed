@@ -15,6 +15,7 @@ function save_options() {
 	}, 1000)
 }
 
+
 function restore_options() {
 	document.getElementById('display_hide').checked = hideStory;
 	document.getElementById('display_fade').checked = !hideStory;

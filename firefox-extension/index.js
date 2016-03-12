@@ -3,6 +3,7 @@ var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
 var self = require("sdk/self");
 var ss = require("sdk/simple-storage");
+var tabs = require("sdk/tabs");
 
 //inicializa storage y variable hideStory
 if(typeof(ss.storage.hide) === 'undefined') {
@@ -40,11 +41,13 @@ function handleHide() {
 }
 
 //guarda preferencia desde preferences.js y emite valor guardado en storage a preferences.js
-var worker = panel
+var worker = panel;
+
 worker.port.on('guardar', function (hide) {
   ss.storage.hide = hide;
   hideStory = ss.storage.hide
 });
+
 
 worker.port.emit('recupero', hideStory);
 
