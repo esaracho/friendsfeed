@@ -15,6 +15,17 @@ function save_options() {
 	}, 1000)
 }
 
+function save_options_reload() {
+	hideStory = document.getElementById('display_hide').checked ? true : false;
+	addon.port.emit('guardar', hideStory);
+	addon.port.emit('recargar', '');
+	var status = document.getElementById('status');
+	status.textContent = '✓ Saved';
+	setTimeout(function() {
+		status.textContent = '';
+	}, 1000)
+}
+
 function restore_options() {
 	document.getElementById('display_hide').checked = hideStory;
 	document.getElementById('display_fade').checked = !hideStory;
@@ -23,4 +34,4 @@ function restore_options() {
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
-console.log(window.location);
+document.getElementById('save_reload').addEventListener('click', save_options_reload);

@@ -3,6 +3,7 @@ var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
 var self = require("sdk/self");
 var ss = require("sdk/simple-storage");
+var tabs = require("sdk/tabs");
 
 //inicializa storage y variable hideStory
 if(typeof(ss.storage.hide) === 'undefined') {
@@ -47,6 +48,13 @@ worker.port.on('guardar', function (hide) {
 });
 
 worker.port.emit('recupero', hideStory);
+
+// Recarga la pagina
+worker.port.on('recargar', function(recargar){
+  if (tabs.activeTab.url === "https://www.facebook.com/") {
+    tabs.activeTab.reload()
+  }
+})
 
 //emite valor guardado en hideStory a clearfeed.js cada vez que se carga la pagina
 function startEmiting(worker) {

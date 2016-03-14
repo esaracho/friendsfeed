@@ -23,7 +23,9 @@
 			margin: 4px 0;
 		}
 		.submit {
-			margin-top: 20px;
+			margin-top: 5px;
+			margin-left: 10px;
+			display: inline-block;
 		}
 		.submit button {
 			padding: 5px 15px 6px;
@@ -31,8 +33,8 @@
 			font-weight: 600;
 			color: #fff;
 			border: 0;
-			background-color: #2ecc71;
-			border-radius: 2px;
+			background-color: #3A5795;
+			border-radius: 4px;
 			cursor: pointer;
 		}
 		.submit span {
@@ -46,7 +48,8 @@
 	<p>By default, we hide all posts that are not directly from your firends or pages you follow.</p>
 	<div class="option"><input type="radio" name="display" value="hide" id="display_hide"> <label for="display_hide">Hide completely</label></div>
 	<div class="option"><input type="radio" name="display" value="fade" id="display_fade"> <label for="display_fade">Just fade</label></div>
-	<div class="submit"><button id="save">Save</button><span id="status"></span></div>
+	<div class="submit"><button id="save">Save</button>
+	<div class="submit"><button id="save_reload">Save & reload</button><span id="status"></span></div>
 	<script src="preferences.js"></script>
 </body>
 </html>
