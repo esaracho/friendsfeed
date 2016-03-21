@@ -7,7 +7,7 @@ var tabs = require("sdk/tabs");
 
 //inicializa storage y variable hideStory
 if(typeof(ss.storage.hide) === 'undefined') {
-     ss.storage.hide = true;
+     ss.storage.hide = 'hide';
    }
 var hideStory = ss.storage.hide;
 
@@ -50,21 +50,22 @@ worker.port.on('guardar', function (hide) {
 worker.port.emit('recupero', hideStory);
 
 // Recarga la pagina
-worker.port.on('recargar', function(recargar){
+worker.port.on('recargar', function(){
   if (tabs.activeTab.url === "https://www.facebook.com/") {
     tabs.activeTab.reload()
   }
 })
 
 //emite valor guardado en hideStory a clearfeed.js cada vez que se carga la pagina
-function startEmiting(worker) {
-  worker.port.emit('recupero', hideStory);
+function startEmiting(worker2) {
+  worker2.port.emit('recupero', hideStory);
 }
 
 // Create a page mod
 var pageMods = pageMod.PageMod({
   include: "*.facebook.com",
   contentScriptFile: [self.data.url("mutation-summary.js"), self.data.url("clearfeed.js")],
-  contentScriptWhen: "ready",
+  //contentScriptWhen: "start",
+  attachTo: ["existing", "top"],
   onAttach: startEmiting
 });
