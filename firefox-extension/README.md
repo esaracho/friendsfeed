@@ -1,6 +1,4 @@
-#friends feed
-
-Extension para Firefox
+#friends feed for Firefox
 
 Enjoy Facebook News Feed with stories only by your friends and pages you follow.
 This extension will hide all stories that show what your friends liked. There
