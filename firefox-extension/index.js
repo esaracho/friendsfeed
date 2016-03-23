@@ -24,6 +24,7 @@ var button = ToggleButton({
 });
 
 var panel = panels.Panel({
+  height: 270,
   contentURL: self.data.url("preferences.html"),
   onHide: handleHide
 });
@@ -57,15 +58,14 @@ worker.port.on('recargar', function(){
 })
 
 //emite valor guardado en hideStory a clearfeed.js cada vez que se carga la pagina
-function startEmiting(worker2) {
-  worker2.port.emit('recupero', hideStory);
+function startEmiting(worker) {
+  worker.port.emit('recupero', hideStory);
 }
 
 // Create a page mod
 var pageMods = pageMod.PageMod({
   include: "*.facebook.com",
   contentScriptFile: [self.data.url("mutation-summary.js"), self.data.url("clearfeed.js")],
-  //contentScriptWhen: "start",
-  attachTo: ["existing", "top"],
+  //contentScriptWhen: "ready",
   onAttach: startEmiting
 });

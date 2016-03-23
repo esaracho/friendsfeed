@@ -6,7 +6,6 @@ hideStory = guardado;
 
 //emite seleccion hacia addon
 function save_options() {
-	//hideStory = document.getElementById('display_hide').checked ? true : false;
 	if(document.getElementById('display_hide').checked) {
 		hideStory = 'hide';
 	}
@@ -26,8 +25,9 @@ function save_options() {
 	}, 1000)
 }
 
+
+//emite seleccion hacia addon y recarga la pagina
 function save_options_reload() {
-	//hideStory = document.getElementById('display_hide').checked ? true : false;
 	if(document.getElementById('display_hide').checked) {
 		hideStory = 'hide';
 	}
@@ -49,8 +49,6 @@ function save_options_reload() {
 }
 
 function restore_options() {
-	//document.getElementById('display_hide').checked = hideStory;
-	//document.getElementById('display_fade').checked = !hideStory;
 	switch (hideStory) {
 		case 'hide':
 			document.getElementById('display_hide').checked = true;
@@ -61,7 +59,6 @@ function restore_options() {
 		case 'disable':
 			document.getElementById('disable').checked = true;
 			break;
-
 	}
 }
 
