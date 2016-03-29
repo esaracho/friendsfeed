@@ -1,6 +1,6 @@
 //Crea estilos para los post desvanecidos
 var style = document.createElement('style');
-var t = document.createTextNode(".desvanece {opacity: 0.2;} .desvanece:hover {opacity: 1.0;}");
+var t = document.createTextNode(".desvanece {opacity: 0.2;} .desvanece:hover {opacity: initial;}");
 style.appendChild(t);
 document.head.appendChild(style);
 
