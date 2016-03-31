@@ -52,7 +52,9 @@ worker.port.emit('recupero', hideStory);
 
 // Recarga la pagina
 worker.port.on('recargar', function(){
-  if (tabs.activeTab.url === "https://web.facebook.com/" || tabs.activeTab.url === "https://web.facebook.com/?sk=h_nor" || tabs.activeTab.url === "https://web.facebook.com/?sk=h_chr") {
+  url = tabs.activeTab.url;
+  urlface = /facebook.com/;
+  if (urlface.test(url)) {
     tabs.activeTab.reload()
   }
 })
@@ -66,6 +68,5 @@ function startEmiting(worker) {
 var pageMods = pageMod.PageMod({
   include: "*.facebook.com",
   contentScriptFile: [self.data.url("mutation-summary.js"), self.data.url("clearfeed.js")],
-  //contentScriptWhen: "ready",
   onAttach: startEmiting
 });

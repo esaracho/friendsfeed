@@ -1,7 +1,7 @@
 {
   "title": "Friends feed",
   "name": "facebook_friends_feed",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Enjoy Facebook News Feed with stories only by your friends and pages you follow.",
   "main": "index.js",
   "author": "Esteban Saracho <sarachoesteban@gmail.com>",
