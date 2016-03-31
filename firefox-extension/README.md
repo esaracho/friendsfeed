@@ -10,3 +10,5 @@ tus amigos y las páginas que sigues. Esta extensión ocultará todas las
 historias que muestran lo que le gusta o comentan tus amigos. También hay una
 opción para desvanecer estas historias, por lo que aún puedes verlos, pero no
 molestaran mucho.
+
+https://addons.mozilla.org/es/firefox/addon/facebook-friends-feed/
